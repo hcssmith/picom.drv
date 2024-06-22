@@ -17,10 +17,10 @@
       pkgs.picom.overrideAttrs (
         oa: {
           src = pkgs.fetchFromGitHub {
-            owner = "ibhagwan";
+            owner = "yshui";
             repo = "picom";
-            rev = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";
-            hash = "sha256-1hVFBGo4Ieke2T9PqMur1w4D0bz/L3FAvfujY9Zergw=";
+            rev = "ae73f45ad9e313091cdf720d0f4cdf5b4eb94c1a";
+            hash = "sha256-srP/za0MRsO8vAR6DENa52PO9PANyJ5g3MJF4e/66U8=";
           };
           buildInputs =
             [
