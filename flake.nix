@@ -2,16 +2,17 @@
   description = "A very basic flake";
 
   inputs = {
-    application-builders.url = "github:hcssmith/application-builders";
-    flake-lib.url = "github:hcssmith/flake-lib";
+    flake-lib = {
+      url = "github:hcssmith/flake-lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
   outputs = {
     self,
-    nixpkgs,
     flake-lib,
-    application-builders,
+    ...
   }: let
     picom = pkgs:
       pkgs.picom.overrideAttrs (
@@ -22,11 +23,6 @@
             rev = "ae73f45ad9e313091cdf720d0f4cdf5b4eb94c1a";
             hash = "sha256-srP/za0MRsO8vAR6DENa52PO9PANyJ5g3MJF4e/66U8=";
           };
-          buildInputs =
-            [
-              pkgs.pcre.dev
-            ]
-            ++ oa.buildInputs;
         }
       );
 
