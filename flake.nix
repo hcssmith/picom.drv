@@ -6,7 +6,7 @@
       url = "github:hcssmith/flake-lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
   };
 
   outputs = {
@@ -23,6 +23,10 @@
             rev = "ae73f45ad9e313091cdf720d0f4cdf5b4eb94c1a";
             hash = "sha256-srP/za0MRsO8vAR6DENa52PO9PANyJ5g3MJF4e/66U8=";
           };
+          nativeBuildInputs = oa.nativeBuildInputs ++ [
+         		pkgs.asciidoc
+          ];
+          doInstallCheck = false;
         }
       );
 
